@@ -1,4 +1,5 @@
 services:
-#    oidnus_wallet.example:
-#        class: Oidnus\WalletBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+    oidnus_wallet.manager:
+        class: Oidnus\WalletBundle\Manager\WalletManager
+        arguments:
+            setEntityManager: "@doctrine.orm.entity_manager"
