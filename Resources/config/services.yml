@@ -1,0 +1,4 @@
+services:
+#    oidnus_wallet.example:
+#        class: Oidnus\WalletBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
