@@ -1,3 +1,0 @@
-oidnus_wallet_homepage:
-    path:     /
-    defaults: { _controller: OidnusWalletBundle:Default:index }
