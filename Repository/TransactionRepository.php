@@ -23,4 +23,15 @@ class TransactionRepository extends \Doctrine\ORM\EntityRepository
 			->setParameter('date',$date.'%');
 	}
 
+	public function getRangeMonth($username){
+		return $this->getEntityManager()
+			->createQuery('
+                SELECT DISTINCT SUBSTRING (t.created_at,1,7) as date
+                FROM OidnusWalletBundle:Transaction t
+                WHERE t.username = :username
+            ')
+			->setParameter('username',$username);
+
+	}
+
 }

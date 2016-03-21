@@ -30,7 +30,13 @@ class WalletManager
 			->getReport($username,$date)
 			->getResult();
 	}
-	
+
+	public function getRangeMonth($username){
+		return $this->em->getRepository('OidnusWalletBundle:Transaction')
+			->getRangeMonth($username)
+			->getResult();
+	}
+
 	private function change($username,$state,$amount,$desc){
 		$wallet = $this->em
 			->getRepository('OidnusWalletBundle:Wallet')
