@@ -25,6 +25,12 @@ class WalletManager
 		return $this->change($username,self::STATE_REMOVE,$amount,$desc);
 	}
 
+	public function getReport($username,$date){
+		return $this->em->getRepository('OidnusWalletBundle:Transaction')
+			->getReport($username,$date)
+			->getResult();
+	}
+	
 	private function change($username,$state,$amount,$desc){
 		$wallet = $this->em
 			->getRepository('OidnusWalletBundle:Wallet')

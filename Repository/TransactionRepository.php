@@ -10,4 +10,17 @@ namespace Oidnus\WalletBundle\Repository;
  */
 class TransactionRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function getReport($username,$date){
+
+		return $this->getEntityManager()
+			->createQuery('
+                SELECT t
+                FROM OidnusWalletBundle:Transaction t
+                WHERE t.username = :username
+                and t.created_at like :date
+            ')
+			->setParameter('username',$username)
+			->setParameter('date',$date.'%');
+	}
+
 }
