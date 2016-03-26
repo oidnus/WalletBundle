@@ -31,6 +31,17 @@ class WalletManager
 			->getResult();
 	}
 
+	public function getBalance($username){
+		$wallet = $this->em
+			->getRepository('OidnusWalletBundle:Wallet')
+			->findOneByUsername($username);
+
+		if ($wallet){
+			return $wallet->getBalance();
+		}
+		return 0;
+	}
+
 	public function getRangeMonth($username){
 		return $this->em->getRepository('OidnusWalletBundle:Transaction')
 			->getRangeMonth($username)
